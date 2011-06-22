@@ -1,6 +1,7 @@
 lua-enumerable is a quick and dirty port of the ruby Enumerable library plus some extras.
 
-It's a native lua library.  Installation is as simple as dropping it in your project and requiring it:
+It's a native lua library.  Installation is as simple as dropping lua-enumerable.lua in 
+your project and requiring it:
 
     require("lua-enumerable")
 
