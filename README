@@ -1,9 +1,11 @@
-lua-enumerable is a quick and dirty port of the ruby Enumerable library to lua, plus some extras.
+lua-enumerable is a quick and dirty port of the ruby Enumerable library plus some extras.
 
-It's a native lua library.  Installation is as simple as dropping it in your project and away you go:
+It's a native lua library.  Installation is as simple as dropping it in your project and requiring it:
 
     require("lua-enumerable")
     
+Synopsis:
+
     local test = {1,2,3}
 
     table.each(test, function (x) print(x) end)
@@ -41,7 +43,7 @@ It's a native lua library.  Installation is as simple as dropping it in your pro
     table.merge({4}, test)
     -- {4,1,2,3}
 
-And some bonus, array manipulation functions:
+Provides some array manipulation functions:
 
     table.pop(test)
     -- returns 3, test is mutated to {1,2}
@@ -63,26 +65,32 @@ Grab a random element with:
     table.random(test)
     -- {2}
 
-Oh, look, boolean tests:
+Oh, look, boolean tests too for sexy if statements:
 
-  table.empty({})
-  -- true
+    table.empty({})
+    -- true
+    
+    table.empty(nil)
+    -- true
 
-  table.empty({1,2,3})
-  -- false
+    table.empty({1,2,3})
+    -- false
 
-  table.present({})
-  -- false
+    table.present({})
+    -- false
+    
+    table.present(nil)
+    -- false
 
-  table.present({1,2,3})
-  -- true
+    table.present({1,2,3})
+    -- true
 
 And some useful bits:
 
-  table.reverse({1,2,3})
-  -- {3,2,1}
+    table.reverse({1,2,3})
+    -- {3,2,1}
 
-  table.dup({1,2,3})
-  -- {1,2,3}
+    table.dup({1,2,3})
+    -- {1,2,3}
 
 
