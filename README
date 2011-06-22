@@ -1,0 +1,88 @@
+lua-enumerable is a quick and dirty port of the ruby Enumerable library to lua, plus some extras.
+
+It's a native lua library.  Installation is as simple as dropping it in your project and away you go:
+
+    require("lua-enumerable")
+    
+    local test = {1,2,3}
+
+    table.each(test, function (x) print(x) end)
+    -- 1
+    -- 2
+    -- 3
+
+    table.times(4, function (x) print(x) end)
+    -- 1
+    -- 2
+    -- 3
+    -- 4
+
+    table.collect(test, function (x) return x + 1 end)
+    -- {2, 3, 4}
+
+    table.select(test, function (x) return x < 3 end)
+    -- {1, 2}
+    
+    table.reject(test, function (x) return x < 3 end)
+    -- {3}
+
+    table.partition(test, function (x) return x < 3 end)
+    -- {1, 2}, {3}
+
+    table.includes(test, 3)
+    -- true
+
+    table.detect(test, function (x) return x == 3 end)
+    -- 3
+
+    table.detect(test, function (x) return x == 4 end)
+    -- nil
+
+    table.merge({4}, test)
+    -- {4,1,2,3}
+
+And some bonus, array manipulation functions:
+
+    table.pop(test)
+    -- returns 3, test is mutated to {1,2}
+     
+    table.shift(test)
+    -- returns 1, test is mutated to {2,3}
+
+    table.unshift(test, 4)
+    -- {4, 1, 2, 3}
+
+    table.push(test, 4)
+    -- {1, 2, 3, 4}
+
+Grab a random element with:
+
+    table.random(test)
+    -- {3}
+    
+    table.random(test)
+    -- {2}
+
+Oh, look, boolean tests:
+
+  table.empty({})
+  -- true
+
+  table.empty({1,2,3})
+  -- false
+
+  table.present({})
+  -- false
+
+  table.present({1,2,3})
+  -- true
+
+And some useful bits:
+
+  table.reverse({1,2,3})
+  -- {3,2,1}
+
+  table.dup({1,2,3})
+  -- {1,2,3}
+
+
