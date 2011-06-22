@@ -40,8 +40,9 @@ Synopsis:
     table.detect(test, function (x) return x == 4 end)
     -- nil
 
-    table.merge({4}, test)
-    -- {4,1,2,3}
+    table.merge({a=1, b=2}, {c=3})
+    -- {a=1,b=2,c=3}
+    -- Note: modifies the first table
 
 Provides some array manipulation functions:
 

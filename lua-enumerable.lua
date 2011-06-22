@@ -63,14 +63,6 @@ table.partition = function(list, func)
   return matches, rejects
 end
 
-table.inject = function(list, value, func)
-  local result = value
-  for i,x in ipairs(list) do
-    result = result + func(x)
-  end
-  return(result)
-end
-
 table.merge = function(source, destination)
   for k,v in pairs(destination) do source[k] = v end
   return source
