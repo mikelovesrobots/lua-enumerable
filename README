@@ -3,7 +3,7 @@ lua-enumerable is a quick and dirty port of the ruby Enumerable library plus som
 It's a native lua library.  Installation is as simple as dropping it in your project and requiring it:
 
     require("lua-enumerable")
-    
+
 Synopsis:
 
     local test = {1,2,3}
