@@ -14,20 +14,17 @@ Synopsis:
     -- 2
     -- 3
 
-    table.times(4, function (x) print(x) end)
-    -- 1
-    -- 2
-    -- 3
-    -- 4
-
     table.collect(test, function (x) return x + 1 end)
     -- {2, 3, 4}
 
     table.select(test, function (x) return x < 3 end)
     -- {1, 2}
-    
+
     table.reject(test, function (x) return x < 3 end)
     -- {3}
+    
+    table.without(test, 3)
+    -- {1, 2}
 
     table.partition(test, function (x) return x < 3 end)
     -- {1, 2}, {3}
@@ -40,34 +37,52 @@ Synopsis:
 
     table.detect(test, function (x) return x == 4 end)
     -- nil
+    -- alias: find_first
 
     table.merge({a=1, b=2}, {c=3})
-    -- {a=1,b=2,c=3}
+    -- {a=1, b=2, c=3}
     -- Note: modifies the first table
+
+    table.times(4, function (x) print(x) end)
+    -- 1
+    -- 2
+    -- 3
+    -- 4
+
+    table.keys({a=1,b=2,c=3})
+    -- {"a", "c", "b"}
 
 Provides some array manipulation functions:
 
     table.pop(test)
-    -- returns 3, test is mutated to {1,2}
+    -- 3
+    -- Note: modifies the input array {1,2}
      
     table.shift(test)
-    -- returns 1, test is mutated to {2,3}
+    -- 1
+    -- Note: modifies the input array {2,3}
 
     table.unshift(test, 4)
     -- {4, 1, 2, 3}
+    -- Note: modifies the input array
 
     table.push(test, 4)
     -- {1, 2, 3, 4}
+    -- Note: modifies the input array
 
-Grab a random element with:
+    table.reverse({1,2,3})
+    -- {3,2,1}
+
+Random elements:
 
     table.random(test)
     -- {3}
     
-    table.random(test)
-    -- {2}
+    table.shuffle(test)
+    -- {3,2,1}
+    -- Note: modifies the input table
 
-Oh, look, boolean tests too for sexy if statements:
+Boolean tests for sexy if statements:
 
     table.empty({})
     -- true
@@ -87,10 +102,7 @@ Oh, look, boolean tests too for sexy if statements:
     table.present({1,2,3})
     -- true
 
-And some useful bits:
-
-    table.reverse({1,2,3})
-    -- {3,2,1}
+Misc:
 
     table.dup({1,2,3})
     -- {1,2,3}

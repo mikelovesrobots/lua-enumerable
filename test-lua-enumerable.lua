@@ -139,3 +139,20 @@ function test_dup()
   assert_equal(2, result.b)
   assert_equal(3, result.c)
 end
+
+function test_shuffle()
+  math.randomseed(1234567890)
+  local result = table.shuffle({1,2,3})
+  
+  assert_equal(3, result[1])
+  assert_equal(2, result[2])
+  assert_equal(1, result[3])
+end
+
+function test_keys()
+  local result = table.keys({a=1, b=2, c=3})
+  assert_equal('a', result[1])
+  assert_equal('c', result[2])
+  assert_equal('b', result[3])
+  assert_equal(3, #result)
+end
