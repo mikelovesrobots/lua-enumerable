@@ -14,6 +14,20 @@ Synopsis:
     -- 2
     -- 3
 
+	local holes = {1,2,7}
+	table.each(holes, function(x) print(x) end)
+	-- 1 2 7
+	table.all(holes, function(x) print(x) end)
+	-- 1 2 7
+	holes["1"] = "one" 
+	holes["2"] = "two"
+	holes["7"] = "seven"
+	table.all(holes, function(x) print(x) end)
+	-- 1 2 7 one seven two
+	--BUT!
+	table.each(holes, function(x) print(x) end)
+	--1 2 7
+
     table.collect(test, function (x) return x + 1 end)
     -- {2, 3, 4}
 
