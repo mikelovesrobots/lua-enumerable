@@ -28,7 +28,7 @@ table.each = function(list, func)
   end
 end
 
-table.all = function(list, func)
+table.every = function(list, func)
   for i,v in pairs(list) do
     func(v, i)
   end

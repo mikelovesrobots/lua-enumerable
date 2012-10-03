@@ -3,9 +3,9 @@ require "lua-enumerable"
 
 module( "test-lua-enumerable", lunit.testcase, package.seeall )
 
-function test_all()
+function test_every()
   y = 0
-  table.each({1,2,7}, function (x) y = y + x end)
+  table.every({1,2,nil,7}, function (x) y = y + x end)
   assert_equal(y, 10)
 end
 
