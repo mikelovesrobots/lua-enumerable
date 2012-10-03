@@ -28,6 +28,12 @@ table.each = function(list, func)
   end
 end
 
+table.every = function(list, func)
+  for i,v in pairs(list) do
+    func(v, i)
+  end
+end
+
 table.select = function(list, func)
   local results = {}
   for i,x in ipairs(list) do
